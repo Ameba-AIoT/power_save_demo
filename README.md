@@ -75,14 +75,19 @@ ameba.py build
 Using bin files generated in the current project directory:
 
 ```bash
-ameba.py flash --p COMx --image km4_boot_all.bin 0x08000000 0x8014000 --image km0_km4_app.bin 0x08014000 0x8200000
+ameba.py flash --p COMx --image boot.bin 0x08000000 0x8014000 --image app.bin 0x08014000 0x8200000
 ```
 
 **Or use prebuilt bin files provided in the parent directory:**
 
 ```bash
-ameba.py flash --p COMx --image ../km4_boot_all.bin 0x08000000 0x8014000 --image ../km0_km4_app.bin 0x08014000 0x8200000
+ameba.py flash --p COMx --image ../boot.bin 0x08000000 0x8014000 --image ../app.bin 0x08014000 0x8200000
 ```
+
+> ⚠️ **Note on binary filenames**: The output filenames depend on your SDK revision.
+> The latest SDK generates `boot.bin` + `app.bin`;
+> older SDK revisions generate `km4_boot_all.bin` + `km0_km4_app.bin`.
+> Replace the filenames in the commands above to match your actual build output.
 
 > Replace `COMx` with your actual serial port, e.g. `COM5`.
 
